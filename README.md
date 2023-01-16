@@ -69,7 +69,7 @@ ${ROOT}
 
 ### Test
 * Run `python test.py --env test --gpu 0`.
-* Note that the variation of the generation result depends on the random sampling of the latent vector from estimated proir Gaussian distribution. Thus, the evaluation result may be slightly different from the reported metric scores in our [paper](https://arxiv.org/abs/2212.05897).
+* Note that the variation of the generation result depends on the random sampling of the latent vector from estimated prior Gaussian distribution. Thus, the evaluation result may be slightly different from the reported metric scores in our [paper](https://arxiv.org/abs/2212.05897).
 * Evaluation result is stored in the log file in `${ROOT}/output/test_release/log/`.
 
 ### Short-term generation
@@ -85,5 +85,4 @@ ${ROOT}
 * Modify environment file `${ROOT}/envs/gen.yaml` to match your purpose.
 * Mark `resume: True` in environment file.
 * Specify `resume_exp, resume_sample, and resume_step` to determine which point to continue the generation.
-* Generated motions are stored in `${ROOT}/output/gen_release/vis/long_term/(next_exp_no)/(sample_no)/(step-by-step motion)`
-
+* Generated motions are stored in `${ROOT}/output/gen_release/vis/long_term/(next_exp_no)/(sample_no)/(step-by-step motion)`.
