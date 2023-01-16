@@ -1,0 +1,14 @@
+# body visualizer: please refer to official github https://github.com/nghorbani/body_visualizer.git
+body_visualizer/*
+
+# common
+__pycache__
+install.txt
+
+# envs
+envs/old
+
+# symbolic links
+dataset
+human_models
+output

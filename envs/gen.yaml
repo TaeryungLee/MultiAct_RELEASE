@@ -1,0 +1,41 @@
+name: gen_release
+
+# directory
+base: ./output
+data_dir: ./dataset
+human_model_path: ./human_models
+test_model_path: ./output/train_release/model/last.pkl
+sampled_data_path: ./output/train_release/model/sampled_training_data.pkl
+
+# base setting
+action_dataset: BABEL
+model: CVAE
+
+# machine config
+num_workers: 12
+batch_size: 16
+gen_batch_size: 4
+vis_num: 5
+test_num_rep: 20
+
+# sampling parameters
+S1_end_len: 4
+transition_rate: 0.1
+max_transition_len: 5
+S2_extra_train_frames: 3
+S2_extra_val_frames: 3
+
+# generation settings
+msg: baseline generation
+target_labels:
+- throw
+- catch
+- throw
+- catch
+- stand
+
+resume: False
+# directory goes by: vis/long_term/exp/sample/(step-by-step motion)
+resume_exp: 0
+resume_sample: 0
+resume_step: 0

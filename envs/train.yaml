@@ -1,0 +1,33 @@
+name: train_release
+
+# directory
+base: ./output
+data_dir: ./dataset
+human_model_path: ./human_models
+
+# base setting
+action_dataset: BABEL
+model: CVAE
+
+# machine config
+num_workers: 12
+batch_size: 16
+test_batch_size: 4
+train_lr: 0.00005
+kl_weight: 0.00001
+
+# training setting
+start_epoch: 0
+end_epoch: 1200
+print_epoch: 10
+vis_epoch: 400
+
+# sampling parameters
+S1_end_len: 4
+transition_rate: 0.1
+max_transition_len: 5
+S2_extra_train_frames: 3
+S2_extra_val_frames: 3
+
+# hyperparameters
+msg: train baseline
