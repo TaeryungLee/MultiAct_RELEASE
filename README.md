@@ -59,8 +59,8 @@ ${ROOT}
 ```
 
 ### Body visualizer
-* Prepare body visualizer from [here](https://github.com/nghorbani/body_visualizer.git).
-* Place the code in `${ROOT}/body_visualizer/` directory.
+* We use the body visualizer code released in this [repo](https://github.com/nghorbani/body_visualizer.git).
+* Running requirements.sh installs the body visualizer in `${ROOT}/body_visualizer/`.
 
 ## Running MultiAct
 ### Train
@@ -86,3 +86,13 @@ ${ROOT}
 * Mark `resume: True` in environment file.
 * Specify `resume_exp, resume_sample, and resume_step` to determine which point to continue the generation.
 * Generated motions are stored in `${ROOT}/output/gen_release/vis/long_term/(next_exp_no)/(sample_no)/(step-by-step motion)`.
+
+## Reference  
+```  
+@InProceedings{Lee2023MultiAct,  
+author = {Lee, Taeryung and Moon, Gyeongsik and Lee, Kyoung Mu},  
+title = {MultiAct: Long-Term 3D Human Motion Generation from Multiple Action Labels},  
+booktitle = {AAAI Conference on Artificial Intelligence (AAAI)},  
+year = {2023}  
+}  
+```
