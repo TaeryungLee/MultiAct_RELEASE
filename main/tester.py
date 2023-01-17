@@ -96,7 +96,7 @@ class Tester():
         seen_datas = (gt_seen_transition_joint, gen_seen_transition_joint, gen_seen_label)
         unseen_datas = (gt_unseen_transition_joint, gen_unseen_transition_joint, gen_unseen_label)
 
-        self.run_evaluate_transition(None, None, seen_datas, unseen_datas)
+        self.run_evaluate_transition(seen_datas, unseen_datas)
 
         del self.test_train_loader
         print("sampling whole gt training set")
@@ -471,18 +471,11 @@ class Tester():
         return
 
 
-
-    def run_evaluate_transition(self, train_data=None, val_data=None, seen_datas=None, unseen_datas=None):
+    def run_evaluate_transition(self, seen_datas=None, unseen_datas=None):
         self.test_logger.info("==================================================Transition Test Start=================================================")
         torch.cuda.empty_cache()
         test_num_rep = self.cfg.test_num_rep
         
-        if seen_datas is None:
-            # generate data like test_BABEL_cond
-            exit(0)
-
-        # (train_gt_all_joint, train_gt_subaction_mask, train_gt_output_mask, train_gt_label) = train_data
-        # (val_gt_all_joint, val_gt_subaction_mask, val_gt_output_mask, val_gt_label) = val_data
         (gt_seen_transition_joints, gen_seen_transition_joints, _) = seen_datas
         (gt_unseen_transition_joints, gen_unseen_transition_joints, _) = unseen_datas
 
@@ -490,15 +483,6 @@ class Tester():
         fid_gt_gen_unseen = []
         fid_test_gt_gen_seen = []
         fid_test_gt_gen_unseen = []
-
-
-        # for ssmct
-        # with open(os.path.join(self.cfg.model_out_dir, "ssmct_gen_seen_trans_joint"), "rb") as f:
-        #     gen_seen_transition_joints = pickle.load(f)
-        # with open(os.path.join(self.cfg.model_out_dir, "ssmct_gen_unseen_trans_joint"), "rb") as f:
-        #     gen_unseen_transition_joints = pickle.load(f)
-
-
 
         for i in range(len(gt_seen_transition_joints)):
             gt_seen_transition_joint = gt_seen_transition_joints[i]

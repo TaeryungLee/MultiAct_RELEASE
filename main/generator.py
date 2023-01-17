@@ -78,7 +78,7 @@ class Generator():
 
         
         # visualization settings
-        self.vis_step = False
+        self.vis_step = True
         self.vis_long = True
         self.vis_long_3view = False
 
@@ -88,7 +88,7 @@ class Generator():
 
     
     def generate_short_term(self):
-        print("generating single-step motions")
+        print("generating single-step motions in", self.gen_short_out_dir)
         with torch.no_grad():
             for itr, inputs in enumerate(self.val_loader):
                 _, out = self.model(inputs, "gen")
@@ -123,7 +123,7 @@ class Generator():
 
 
     def generate_long_term(self):
-        print("generating long-term motions")
+        print("generating long-term motions in", self.gen_long_out_dir)
 
         # print: exp_name, resume, resume_exp, resume_step, target_labels
         print("exp_name: ", self.current_exp)
@@ -342,8 +342,8 @@ class Generator():
                     unaligned_next_param = next_param[next_framelength[0]:next_alllen-2]
                     unaligned_next_trans = next_trans[next_framelength[0]:next_alllen-2]
 
-                    target_next_param = next_param[next_framelength[0]-1, :3]
-                    target_next_trans = next_trans[next_framelength[0]-1, :3]
+                    target_next_param = next_param[next_framelength[0], :3]
+                    target_next_trans = next_trans[next_framelength[0], :3]
 
                     aligned_prev_param, aligned_prev_trans = self.align_method(
                         unaligned_prev_param, unaligned_prev_trans, target_prev_param, target_prev_trans

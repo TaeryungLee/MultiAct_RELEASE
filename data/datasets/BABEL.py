@@ -202,7 +202,6 @@ class BABEL(torch.utils.data.Dataset):
             sample_rate = int(fps / self.sample_fps)
             
             # annotation processing
-            # adjacent two: (S1 Tr S2)
             if method == "adjacent_two":
                 for S1, S2 in product(annotation, annotation):
                     # adjacnecy
