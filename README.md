@@ -5,7 +5,7 @@
 </p> 
 
 ## Introduction
-This repo is official **[PyTorch](https://pytorch.org)** implementation of **[**MultiAct: Long-Term 3D Human Motion Generation from Multiple Actions** (AAAI 2023 Oral.)](https://arxiv.org/abs/2212.05897)**.
+This repo is official **[PyTorch](https://pytorch.org)** implementation of **[**MultiAct: Long-Term 3D Human Motion Generation from Multiple Actions** (AAAI 2023 Oral.)](https://arxiv.org/abs/2212.05897v2)**.
 
 ## Quick demo
 * Install **[PyTorch](https://pytorch.org)** and Python >= 3.8.13. Run `sh requirements.sh` to install the python packages. You should slightly change `torchgeometry` kernel code following [here](https://github.com/mks0601/I2L-MeshNet_RELEASE/issues/6#issuecomment-675152527).
@@ -69,7 +69,7 @@ ${ROOT}
 
 ### Test
 * Run `python test.py --env test --gpu 0`.
-* Note that the variation of the generation result depends on the random sampling of the latent vector from estimated prior Gaussian distribution. Thus, the evaluation result may be slightly different from the reported metric scores in our [paper](https://arxiv.org/abs/2212.05897).
+* Note that the variation of the generation result depends on the random sampling of the latent vector from estimated prior Gaussian distribution. Thus, the evaluation result may be slightly different from the reported metric scores in our [paper](https://arxiv.org/abs/2212.05897v2).
 * Evaluation result is stored in the log file in `${ROOT}/output/test_release/log/`.
 
 ### Short-term generation
